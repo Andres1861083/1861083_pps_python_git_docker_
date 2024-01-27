@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' /home/andresgz/CETI-Temario/PPS/Tema_2.Implantacion_Sistemas_Seguros_Desplegado_Software/Practica-1.Python_VENV+Git+Docker/.venv/bin/python "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from flask.cli import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
