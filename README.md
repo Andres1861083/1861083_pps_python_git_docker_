@@ -29,4 +29,10 @@ Para instalar las dependencias, ejecuta los siguientes comandos:
 ```
 pip install -r requirements.txt
 ```
+### Ejecución
 
+Para ejecutar el programa usa:
+```
+python3 app.py
+```
+Y luego ve a localhost:5000
