@@ -39,11 +39,26 @@ git clone https://github.com/Andres1861083/1861083_pps_python_git_docker_.git
 cd 1861083_pps_python_git_docker_
 
 docker build -t app-bayeta .
+
+docker pull mongo:latest
 ```
 
-Una vez construido, se puede ejecutar
+Una vez construido, ejecutamos los docker
 ```
-docker run -d -p 5000:5000 --name app-bayeta app-bayeta
+docker run -p 5000:5000 --name app-bayeta app-bayeta:latest
+
+docker run -p 27017:27017 --name mongodb -d mongo:latest 
+```
+
+Se crea una red y se meten dentro de la red.
+```
+docker network create bayeta-network 
+
+docker network connect bayeta-network mongodb 
+
+docker network connect bayeta-network app-bayeta
+
+docker start app-bayeta
 ```
 
 Por ultimo, en el navegador usamos la url **http://127.0.0.1:5000**
