@@ -20,9 +20,6 @@ Para ello vamos a utilizar (sí, lo has adivinado) Python (venv), Git y Docker
 
 #### La app de bayeta se puede usar tanto sin DOCKER como con él.
 
-## CON DOCKER
-
-
 ## Utilizando Docker Compose
 
   Para simplificar el despliegue y gestionar la infraestructura de la aplicación y la base de datos MongoDB, utilizamos Docker Compose. Sigue estos pasos:
