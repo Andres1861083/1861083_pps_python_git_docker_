@@ -22,6 +22,11 @@ Para ello vamos a utilizar (sí, lo has adivinado) Python (venv), Git y Docker
 
 ## CON DOCKER
 
+
+## Utilizando Docker Compose
+
+  Para simplificar el despliegue y gestionar la infraestructura de la aplicación y la base de datos MongoDB, utilizamos Docker Compose. Sigue estos pasos:
+
 ### Requisitos
 Instalar Docker en el sistema, para ello podemos instalarlo.
 ```
@@ -30,39 +35,31 @@ sudo apt install docker-ce
 
 Si quieres instalar de forma mas segura puedes hacerlo siguiendo estos pasos de **[Digitalocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)**
 
-
 ### Ejecución
-Para ejecutar la app hay que bajarse el repositorio y construir el docker.
+1. Clona el repositorio:
+
 ```
 git clone https://github.com/Andres1861083/1861083_pps_python_git_docker_.git
 
 cd 1861083_pps_python_git_docker_
-
-docker build -t app-bayeta .
-
-docker pull mongo:latest
 ```
 
-Una vez construido, ejecutamos los docker
-```
-docker run -p 5000:5000 --name app-bayeta app-bayeta:latest
+2. Construye y levanta los contenedores con Docker Compose:
 
-docker run -p 27017:27017 --name mongodb -d mongo:latest 
-```
-
-Se crea una red y se meten dentro de la red.
-```
-docker network create bayeta-network 
-
-docker network connect bayeta-network mongodb 
-
-docker network connect bayeta-network app-bayeta
-
-docker start app-bayeta
+```bash
+docker-compose up
 ```
 
-Por ultimo, en el navegador usamos la url **http://127.0.0.1:5000**
+3. Accede a la aplicación en tu navegador utilizando la URL [http://127.0.0.1:5000](http://127.0.0.1:5000).
 
+4. ¡Listo! La aplicación y la base de datos MongoDB están funcionando.
+
+### Detener y Limpiar
+Si deseas detener y limpiar los contenedores:
+
+```
+  docker-compose down
+```
 ## SIN DOCKER
 
 Para hacerlo sin docker hay que usar Python3 y virtualizarlo.

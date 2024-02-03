@@ -1,1 +1,5 @@
 node_modules
+.git
+__pycache__
+.dockerignore
+docker-compose.yml

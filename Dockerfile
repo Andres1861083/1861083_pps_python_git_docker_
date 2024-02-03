@@ -11,9 +11,6 @@ RUN pip install -r requirements.txt
 FROM build as runtime
 EXPOSE 5000
 EXPOSE 27017
-# Variables de entorno para la conexión a MongoDB
-ENV MONGO_HOST mongodb
-ENV MONGO_PORT 27017
 
 # Comando para iniciar la aplicación
 CMD ["python", "app.py"]

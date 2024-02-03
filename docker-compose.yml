@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app-bayeta:
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    networks:
+      - bayeta-network
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - bayeta-network
+networks:
+  bayeta-network:
