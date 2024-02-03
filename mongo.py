@@ -34,4 +34,9 @@ def consultar(n_frases):
 
     return [frase['frase'] for frase in frases_aleatorias]
 
-    
+
+def insertar_frase(frase):
+    frases_auspiciosas = instanciar()
+    frases_auspiciosas.insert_one({"frase": frase})
+
+

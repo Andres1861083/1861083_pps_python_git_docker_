@@ -1,4 +1,4 @@
-from mongo import inicializar, consultar
+from mongo import inicializar, consultar, insertar_frase
 import random
 
 # Inicializar la colección
@@ -14,3 +14,6 @@ def frotar(n_frases: int = 1) -> list:
     n_frases = min(n_frases, len(frases))
 
     return random.sample(frases, n_frases)
+
+def insertar_frase_bayeta(frase):
+    insertar_frase(frase)

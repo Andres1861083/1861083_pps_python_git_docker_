@@ -44,7 +44,7 @@ cd 1861083_pps_python_git_docker_
 2. Construye y levanta los contenedores con Docker Compose:
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 3. Accede a la aplicación en tu navegador utilizando la URL [http://127.0.0.1:5000](http://127.0.0.1:5000).
@@ -92,3 +92,11 @@ python3 app.py
 ```
 Por ultimo ve al navegador y por la URL http://127.0.0.1:5000
 </div>
+
+
+### Incorporacion de Frases
+Hay que irse al fichero **`frases.json`** y añadir entre **`{}`** las frases que vas a añadir y luego en el entorno virtual hay que ejecutar con **`cURL`** el archivo.
+
+```
+curl -X POST -H "Content-Type: application/json" -d @frases.json http://localhost:5000/frotar/add
+```

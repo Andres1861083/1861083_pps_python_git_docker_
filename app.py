@@ -1,7 +1,7 @@
 # app.py
 import random
-from bayeta import frotar
-from flask import Flask, jsonify
+from bayeta import frotar, insertar_frase_bayeta
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -12,6 +12,17 @@ def obtener_frases(n_frases):
     for frase in frases:
         frases_dict.append({'frase': frase})
     return jsonify(frases_dict)
+
+@app.route('/frotar/add', methods=['POST'])
+def agregar_frases():
+    try:
+        data = request.get_json()
+        nuevas_frases = data.get('frases', [])
+        for frase in nuevas_frases:
+            insertar_frase_bayeta(frase)
+        return jsonify({"message": "Frases agregadas exitosamente"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/')
 def hola_mundo():
